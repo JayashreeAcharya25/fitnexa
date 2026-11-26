@@ -1,0 +1,11 @@
+:root {
+  --color-shadow-grey: #232528;
+  --color-shamrock: #169873;
+  --color-parchment: #f2edeb;
+
+  --color-text: var(--color-shadow-grey);
+  --color-background: var(--color-parchment);
+  --color-primary: var(--color-shamrock);
+
+  --font-family-base: "Open Sans", sans-serif;
+}
