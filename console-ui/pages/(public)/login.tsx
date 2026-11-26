@@ -3,9 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import NextLink from "next/link";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
-import Chip from "@mui/material/Chip";
 import CircularProgress from "@mui/material/CircularProgress";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
@@ -15,7 +13,9 @@ import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { Activity, Dumbbell, Eye, EyeOff, Flame, Footprints } from "lucide-react";
+import { Activity, Eye, EyeOff, Flame, Footprints } from "lucide-react";
+import SoftButton from "@/components/ui/SoftButton";
+import SoftChip from "@/components/ui/SoftChip";
 
 const week = [
   { label: "Mon", value: 46 },
@@ -141,7 +141,7 @@ export default function LoginPage() {
 
             <Box className="d-flex align-items-center justify-content-between gap-3 position-relative">
               <BrandMark />
-              <Chip label="Gym console" color="primary" size="small" />
+              <SoftChip label="Gym console" color="primary" size="small" glow />
             </Box>
 
             <Box className="position-relative py-3 w-100" sx={{ maxWidth: "100%" }}>
@@ -168,7 +168,7 @@ export default function LoginPage() {
                   >
                     <Box className="d-flex align-items-center justify-content-between gap-2 mb-3">
                       <Typography variant="subtitle1">Weekly activity</Typography>
-                      <Chip label="+12%" color="primary" size="small" />
+                      <SoftChip label="+12%" color="primary" size="small" glow />
                     </Box>
                     <Box className="d-flex align-items-end justify-content-between gap-2" sx={{ height: 120 }}>
                       {week.map((day) => (
@@ -210,10 +210,10 @@ export default function LoginPage() {
             </Box>
 
             <Box className="d-flex flex-wrap align-items-center gap-2 position-relative">
-              <Chip label="Members" variant="outlined" sx={quietChip} />
-              <Chip label="Classes" variant="outlined" sx={quietChip} />
-              <Chip label="Trainers" variant="outlined" sx={quietChip} />
-              <Chip icon={<Dumbbell size={14} />} label="Floor is open" color="primary" />
+              <SoftChip label="Members" />
+              <SoftChip label="Classes" />
+              <SoftChip label="Trainers" />
+              <SoftChip icon={<BarbellIcon />} label="Floor is open" color="primary" glow />
             </Box>
           </Grid>
 
@@ -228,7 +228,7 @@ export default function LoginPage() {
                 sx={{ display: { xs: "flex", lg: "none" } }}
               >
                 <BrandMark />
-                <Chip label="Gym console" color="primary" size="small" />
+                <SoftChip label="Gym console" color="primary" size="small" glow />
               </Box>
 
               <Paper
@@ -328,9 +328,9 @@ export default function LoginPage() {
                   </Link>
                 </Box>
 
-                <Button type="submit" variant="contained" color="primary" size="large" fullWidth className="py-2">
+                <SoftButton type="submit" color="primary" size="large" fullWidth glow className="py-2">
                   Sign in
-                </Button>
+                </SoftButton>
 
                 <Typography variant="body2" className="text-center mt-4 mb-0">
                   New to Fitnexa?{" "}
@@ -358,10 +358,18 @@ export default function LoginPage() {
   );
 }
 
-const quietChip = {
-  color: "parchment.main",
-  borderColor: "rgba(242, 237, 235, 0.2)",
-};
+function BarbellIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M6.5 8.5v7M3.5 10v4M17.5 8.5v7M20.5 10v4M6.5 12h11"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
 function BrandMark() {
   return (
